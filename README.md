@@ -48,6 +48,66 @@ mkdir -p ~/.pharos/skills
 cp -r . ~/.pharos/skills/walletsleepscore
 ```
 
+## Quick test (try it in 30 seconds)
+
+After the 3-step install above, run the demo mode (no private key, no RPC, no setup):
+
+```bash
+bash scripts/score.sh 0xdemo0000000000000000000000000000000000c012
+```
+
+You should see a printed report. The demo uses synthetic data, so it works offline.
+
+To run a real check on a Pharos transaction, wallet, or token, replace the placeholder:
+
+```bash
+bash scripts/score.sh 0xYOUR_WALLET --network mainnet --format md
+```
+
+## Use in an AI agent (Claude Code / Codex / OpenClaw / Pharos Agent Center)
+
+The skill ships with a `SKILL.md` that AI agents auto-load. Once installed in your agent, just ask in natural language — the agent will read `SKILL.md` and run the bash script for you.
+
+```text
+"Score wallet 0xabc... for activity and hygiene on Pharos."
+```
+
+The agent will run the script and read the result back to you.
+
+### Install in your agent
+
+**Option A — Pharos Agent Center** (one-line install):
+
+```bash
+pharos-skill install https://github.com/kehindemariam/walletsleepscore
+```
+
+**Option B — OpenClaw / Claude Code / Codex** (one-line via npm):
+
+```bash
+npx skills add https://github.com/kehindemariam/walletsleepscore
+```
+
+**Option C — Manual install** (drop into your agent's skills directory):
+
+```bash
+git clone https://github.com/kehindemariam/walletsleepscore
+cd walletsleepscore
+
+# Claude Code:
+mkdir -p ~/.claude/skills/walletsleepscore
+cp -r . ~/.claude/skills/walletsleepscore/
+
+# Codex:
+mkdir -p ~/.codex/skills/walletsleepscore
+cp -r . ~/.codex/skills/walletsleepscore/
+
+# OpenClaw:
+mkdir -p ~/.openclaw/skills/walletsleepscore
+cp -r . ~/.openclaw/skills/walletsleepscore/
+```
+
+Then restart the agent — the skill will be auto-loaded.
 ## Quick start
 
 ### Zero-dependency (bash + curl only)
